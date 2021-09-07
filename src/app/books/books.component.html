@@ -1,0 +1,29 @@
+<po-page-list
+  p-title="Books"
+  [p-filter]="filterSettings">
+
+  <po-list-view
+    p-property-title="name"
+    [p-items]="books"
+    [p-actions]="actions">
+
+    <ng-template p-list-view-content-template let-item>
+      <div class="po-row">
+        <po-info class="po-md-6" p-label="Author" [p-value]="item.author"></po-info>
+
+        <po-info class="po-md-6" p-label="Status" [p-value]="item | bookStatus"></po-info>
+      </div>
+    </ng-template>
+
+  </po-list-view>
+
+</po-page-list>
+
+<po-modal
+  #modal
+  p-title="Enter the user who is borrowing the book"
+  [p-primary-action]="primaryAction">
+
+  <po-input [(ngModel)]="loanUser"></po-input>
+
+</po-modal>
